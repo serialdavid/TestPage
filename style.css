@@ -198,7 +198,7 @@ input:valid::placeholder {
     }
 
     .footer-container {
-      margin-top: -200px; /* Adjust this value to create space between login box and footer on smaller screens */ 
+      margin-top: -100px; /* Adjust this value to create space between login box and footer on smaller screens */ 
     }
     .logo {
         margin-bottom: 10px;
