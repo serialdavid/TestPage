@@ -194,8 +194,8 @@ input:valid::placeholder {
 /* Responsive styles */
 @media (max-width: 768px) {
     .login-box{
-        width: 95%;
-        margin: auto;
+        width: 100%;
+        margin: 0px auto;
     }
 
     .footer-container {
