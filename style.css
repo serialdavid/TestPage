@@ -224,7 +224,7 @@ input:valid::placeholder {
 }
 
 
-@media (max-width: 750px) {
+@media (max-width: 740px) {
       .login-box{
         width: 280px;
     }
