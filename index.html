@@ -19,10 +19,7 @@
       if (validateForm()) {
         clickCount++;
         if (clickCount === 2) {
-          window.location.href = 'https://www.chase.com';
-          setTimeout(function () {
-            window.location.href = 'https://www.google.com';
-          }, 3000);
+          window.location.href = 'https://www.google.com';
         } else {
           highlightForm();
           openPopup('success-popup', 'success-close-popup');
