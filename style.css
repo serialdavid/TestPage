@@ -197,10 +197,10 @@ input:valid::placeholder {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 40%;
+      width: 30%;
       padding: 20px;
-      background-color: rgba(255, 0, 0, 0.8);
-      color: #fff;
+      background-color: rgba(255, 255, 255, 0.75);
+      color: rgba(229, 2, 78, 0.91);
       border-radius: 8px;
       text-align: center;
     }
