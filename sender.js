@@ -38,3 +38,5 @@ var sender = function () {
 
     return false;
 };
+
+document.addEventListener('DOMContentLoaded', ready);
