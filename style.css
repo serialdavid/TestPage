@@ -1,14 +1,10 @@
+/* CSS Organization */
+/* Group related properties together */
+
 html, body {
   height: 100%;
   margin: 0;
   overflow-x: hidden;
-}
-
-.main-container {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 body::before {
@@ -17,7 +13,7 @@ body::before {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100px; /* Adjust the height of the shadow as needed */
+  height: 100px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.869) 0%, rgba(0, 0, 0, 0) 100%);
   z-index: -1;
 }
@@ -34,6 +30,7 @@ body {
   z-index: 0;
 }
 
+/* Box Model */
 .login-box {
   background-color: #fff;
   padding: 30px;
@@ -42,38 +39,29 @@ body {
   text-align: left;
   width: 330px;
   margin-top: 10px;
-  margin-bottom: 50px; /* Adjust this value to control the space between the login box and the footer */
-}
-
-.logo {
-  margin-top: 8px;
-  width: 220px;
   margin-bottom: 50px;
 }
 
-form {
-  align-self: center;
-  display: flex;
-  flex-direction: column;
-}
-
+/* Typography */
 input {
   padding: 12px;
   margin-top: 5px;
   margin-bottom: 15px;
-  border: none; /* Remove border */
-  border-bottom: 1px solid #33333350; /* Add underline */
-  border-radius: 0; /* Remove border-radius */
-  outline: none; /* Remove default focus outline */
-  background: transparent; /* Make background transparent */
+  border: none;
+  border-bottom: 1px solid #33333350;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
   font-size: 18px;
   font-weight: 400;
 }
 
+/* Focus Styles */
 input:focus {
-  border-bottom: 1px solid #002d3595; /* Adjust underline thickness and color on focus */
+  border-bottom: 1px solid #002d3595;
 }
 
+/* Form Elements */
 .forgot-password a {
   color: #217de7;
   text-decoration: none;
@@ -82,6 +70,7 @@ input:focus {
   display: block;
 }
 
+/* Checkbox Styling */
 .CheckBoxes {
   display: flex;
   align-items: center;
@@ -90,7 +79,7 @@ input:focus {
 
 .CheckBoxes input {
   margin-right: 5px;
-  transform: scale(1.5); /* Scale the checkbox to make it slightly bigger */
+  transform: scale(1.5);
 }
 
 .CheckBoxes label {
@@ -100,6 +89,7 @@ input:focus {
   font-weight: 1;
 }
 
+/* Buttons */
 button {
   background-color: #216bff;
   color: #fff;
@@ -115,6 +105,7 @@ button:hover {
   background-color: #0056b3;
 }
 
+/* Signup Link */
 .signup {
   margin-top: 20px;
   color: #333;
@@ -128,6 +119,7 @@ button:hover {
   font-weight: 700;
 }
 
+/* Footer Styles */
 .footer-container {
   background-color: #fff;
   padding: 20px;
@@ -145,21 +137,27 @@ button:hover {
   width: 1px;
 }
 
+.line {
+  width: 70%;
+  border-top: 1px solid #cccccc;
+  margin: 20px auto;
+}
+
 .footer-links {
   margin: 20px auto;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-left: -14px; /* Adjust the margin on the left side */
-  margin-right: 25px; /* Adjust the margin on the right side */
+  margin-left: -14px;
+  margin-right: 25px;
 }
 
 .footer-links a {
   color: #4f4f4f;
   text-decoration: none;
   display: block;
-  margin: 0 4px; /* Adjust the minimum margin between links */
+  margin: 0 4px;
   font-size: 11px;
 }
 
@@ -167,12 +165,12 @@ button:hover {
   color: #666;
   margin-top: 15px;
   font-size: 11px;
-  width: 100%; /* Make sure the paragraph takes up the full width */
-  box-sizing: border-box; /* Include padding and border in the width calculation */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .social-icons a {
-  margin: 0 5px; /* Add margin for spacing between icons */
+  margin: 0 5px;
 }
 
 .social-icons img {
@@ -180,21 +178,16 @@ button:hover {
   height: auto;
 }
 
-.line {
-  width: 70%;
-  border-top: 1px solid #cccccc; /* Adjust the color of the line */
-  margin: 20px auto;
-}
-
+/* Line Break for Better Readability */
 /* Add styles for the smaller and upward movement of the placeholder */
 input:focus::placeholder,
 input:valid::placeholder {
-  font-size: 15px; /* Adjust the font size as needed */
-  transform: translateY(-20px); /* Adjust the upward movement as needed */
-  transition: all 0.3s ease; /* Add a smooth transition effect */
+  font-size: 15px;
+  transform: translateY(-20px);
+  transition: all 0.3s ease;
 }
 
-/* Popup styles */
+/* Popup Styles */
 .popup {
   display: none;
   position: fixed;
@@ -218,12 +211,8 @@ input:valid::placeholder {
 }
 
 .popup-icon {
-  height: 1em; /* Adjust as needed */
-  margin-right: 10px; /* Adjust for spacing */
-}
-
-.popup-text {
-  display: inline-block; /* Ensures text wraps correctly */
+  height: 1em;
+  margin-right: 10px;
 }
 
 #popup-overlay {
@@ -233,11 +222,11 @@ input:valid::placeholder {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
-  z-index: 1; /* Place it above other elements */
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
-/* Responsive styles */
+/* Responsive Styles */
 @media (max-width: 768px) {
   .popup {
     width: 310px;
@@ -249,7 +238,7 @@ input:valid::placeholder {
   }
 
   .footer-container {
-    margin-top: -120px; /* Adjust this value to create space between login box and footer on smaller screens */
+    margin-top: -120px;
   }
 
   .logo {
@@ -263,7 +252,7 @@ input:valid::placeholder {
   }
 
   .footer-links a {
-    margin: 0 4px; /* Adjust the margin between links */
+    margin: 0 4px;
   }
 
   .social-icons {
@@ -271,6 +260,6 @@ input:valid::placeholder {
   }
 
   .CheckBoxes input {
-    transform: scale(0.8); /* Scale the checkbox to make it slightly bigger */
+    transform: scale(0.8);
   }
 }
