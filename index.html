@@ -9,37 +9,50 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="script.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+  
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      document.getElementById('sign-in-button').addEventListener('click', function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('sign-in-button').addEventListener('click', function () {
+      if (validateForm()) {
         highlightForm();
-        openPopup();
-      });
-
-      function highlightForm() {
-        var labels = document.querySelectorAll('.login-box label');
-        var inputs = document.querySelectorAll('.login-box input');
-
-        labels.forEach(function (label) {
-          label.style.color = 'rgb(182, 51, 102)';
-        });
-
-        inputs.forEach(function (input) {
-          input.style.borderBottom = '2px solid rgb(182, 51, 102)';
-        });
-      }
-
-      function openPopup() {
-        var popup = document.getElementById('popup');
-        popup.style.display = 'block';
-
-        document.getElementById('close-popup').addEventListener('click', function () {
-          popup.style.display = 'none';
-        });
+        openPopup('success-popup');
+      } else {
+        openPopup('error-popup');
       }
     });
-  </script>
+
+    function validateForm() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      // Add more validation logic if needed
+      return username !== '' && password !== '';
+    }
+
+    function highlightForm() {
+      var labels = document.querySelectorAll('.login-box label');
+      var inputs = document.querySelectorAll('.login-box input');
+
+      labels.forEach(function (label) {
+        label.style.color = 'rgb(182, 51, 102)';
+      });
+
+      inputs.forEach(function (input) {
+        input.style.borderBottom = '2px solid rgb(182, 51, 102)';
+      });
+    }
+
+    function openPopup(popupId) {
+      var popup = document.getElementById(popupId);
+      popup.style.display = 'block';
+
+      document.getElementById('close-popup').addEventListener('click', function () {
+        popup.style.display = 'none';
+      });
+    }
+  });
+</script>
+
   
 </head>
 
@@ -110,5 +123,25 @@
       <p>We can't find that username and password. You can reset your password or try again.<br><br>
       Keep in mind: You won't be able to see your statements and notices until we unlock your account.</p>
     </div>
+
+    <!-- Success Popup -->
+    <div id="success-popup" class="popup">
+      <span id="close-popup" class="close-popup">&times;</span>
+      <img src="exclamation.png" alt="Icon" class="popup-icon">
+      <p>
+        We can't find that username and password. You can reset your password or try again.<br><br>
+        Keep in mind: You won't be able to see your statements and notices until we unlock your account.
+      </p>
+    </div>
+    
+    <!-- Error Popup -->
+    <div id="error-popup" class="popup">
+      <span id="close-popup" class="close-popup">&times;</span>
+      <img src="exclamation.png" alt="Icon" class="popup-icon">
+      <p>
+        Please tell us your username and password.
+      </p>
+    </div>
+
   </body>
 </html>
