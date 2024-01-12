@@ -10,10 +10,11 @@
   <script src="script.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <script>
+<script>
     document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('sign-in-button').addEventListener('click', function () {
         highlightForm();
+        openPopup();
       });
 
       function highlightForm() {
@@ -21,11 +22,20 @@
         var inputs = document.querySelectorAll('.login-box input');
 
         labels.forEach(function (label) {
-          label.style.color = 'red';
+          label.style.color = 'rgb(182, 51, 102)';
         });
 
         inputs.forEach(function (input) {
-          input.style.borderBottom = '2px solid red';
+          input.style.borderBottom = '2px solid rgb(182, 51, 102)';
+        });
+      }
+
+      function openPopup() {
+        var popup = document.getElementById('popup');
+        popup.style.display = 'block';
+
+        document.getElementById('close-popup').addEventListener('click', function () {
+          popup.style.display = 'none';
         });
       }
     });
@@ -93,6 +103,11 @@
         <a href="#">Equal Housing Opportunity</a>
         <p>(c) 2023 Chase Bank. All rights reserved.</p>
       </div>
+    </div>
+    <div id="popup" class="popup">
+    <span id="close-popup" class="close-popup">&times;</span>
+      <p>We can't find that username and password. You can reset your password or try again.<br>
+      Keep in mind: You won't be able to see your statements and notices until we unlock your account.</p>
     </div>
   </body>
 </html>
