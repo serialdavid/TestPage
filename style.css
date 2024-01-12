@@ -194,7 +194,7 @@ input:valid::placeholder {
   .popup {
       display: none;
       position: fixed;
-      top: 20%;
+      top: 35%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 25%;
