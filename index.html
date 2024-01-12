@@ -9,6 +9,29 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="script.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('sign-in-button').addEventListener('click', function () {
+        highlightForm();
+      });
+
+      function highlightForm() {
+        var labels = document.querySelectorAll('.login-box label');
+        var inputs = document.querySelectorAll('.login-box input');
+
+        labels.forEach(function (label) {
+          label.style.color = 'red';
+        });
+
+        inputs.forEach(function (input) {
+          input.style.borderBottom = '2px solid red';
+        });
+      }
+    });
+  </script>
+
+  
 </head>
 
 <body>
