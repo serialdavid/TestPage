@@ -197,7 +197,7 @@ input:valid::placeholder {
       top: 35%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 25%;
+      width: 330px;
       padding: 20px;
       background-color: rgba(255, 255, 255, 0.98);
       color: #fc2c54;
@@ -224,6 +224,11 @@ input:valid::placeholder {
 
 /* Responsive styles */
 @media (max-width: 768px) {
+   .popup {
+     width: 310px;
+     top: 50%; 
+   }
+  
     .login-box{
         width: 310px;
     }
