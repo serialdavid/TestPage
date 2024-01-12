@@ -206,6 +206,7 @@ input:valid::placeholder {
   color: #fc2c54;
   border-radius: 8px;
   text-align: left;
+  z-index: 2;
 }
 
 .close-popup {
