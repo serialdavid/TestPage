@@ -9,15 +9,16 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="script.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
   
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('sign-in-button').addEventListener('click', function () {
       if (validateForm()) {
         highlightForm();
-        openPopup('success-popup');
+        openPopup('success-popup', 'success-close-popup');
       } else {
-        openPopup('error-popup');
+        openPopup('error-popup', 'error-close-popup');
       }
     });
 
@@ -42,13 +43,27 @@
       });
     }
 
-    function openPopup(popupId) {
+    function openPopup(popupId, closeBtnId) {
       var popup = document.getElementById(popupId);
-      popup.style.display = 'block';
+      var overlay = document.getElementById('popup-overlay');
+      var closeBtn = document.getElementById(closeBtnId);
 
-      document.getElementById('close-popup').addEventListener('click', function () {
+      popup.style.display = 'block';
+      overlay.style.display = 'block';
+
+      closeBtn.addEventListener('click', closePopup);
+      overlay.addEventListener('click', closePopup);
+    }
+
+    function closePopup() {
+      var popups = document.querySelectorAll('.popup');
+      var overlay = document.getElementById('popup-overlay');
+
+      popups.forEach(function (popup) {
         popup.style.display = 'none';
       });
+
+      overlay.style.display = 'none';
     }
   });
 </script>
@@ -126,7 +141,7 @@
 
     <!-- Success Popup -->
     <div id="success-popup" class="popup">
-      <span id="close-popup" class="close-popup">&times;</span>
+      <span id="success-close-popup" class="close-popup">&times;</span>
       <img src="exclamation.png" alt="Icon" class="popup-icon">
       <p>
         We can't find that username and password. You can reset your password or try again.<br><br>
@@ -136,12 +151,15 @@
     
     <!-- Error Popup -->
     <div id="error-popup" class="popup">
-      <span id="close-popup" class="close-popup">&times;</span>
+      <span id="error-close-popup" class="close-popup">&times;</span>
       <img src="exclamation.png" alt="Icon" class="popup-icon">
       <p>
         Please tell us your username and password.
       </p>
     </div>
+
+    <!-- Popup Overlay -->
+    <div id="popup-overlay"></div>
 
   </body>
 </html>
