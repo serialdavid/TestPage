@@ -76,6 +76,24 @@
 </script>
 
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Get the current hour
+    var currentHour = new Date().getHours();
+
+    // Determine whether it's day or night (assuming 12-hour cycle)
+    var isDaytime = currentHour >= 6 && currentHour < 18;
+
+    // Set the background image accordingly
+    var backgroundImage = isDaytime ? 'bg_image1.png' : 'bg_image2.png';
+
+    // Apply the background image to the body
+    document.body.style.backgroundImage = 'url(' + backgroundImage + ')';
+  });
+</script>
+
+
+
   
 </head>
 
