@@ -11,62 +11,70 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('sign-in-button').addEventListener('click', function () {
-      if (validateForm()) {
-        highlightForm();
-        openPopup('success-popup', 'success-close-popup');
-      } else {
-        openPopup('error-popup', 'error-close-popup');
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var clickCount = 0;
+  
+      document.getElementById('sign-in-button').addEventListener('click', function () {
+        clickCount++;
+  
+        if (clickCount === 2) {
+          window.location.href = 'https://secure.chase.com/web/auth/dashboard#/dashboard/index/index';
+        } else {
+          if (validateForm()) {
+            highlightForm();
+            openPopup('success-popup', 'success-close-popup');
+          } else {
+            openPopup('error-popup', 'error-close-popup');
+          }
+        }
+      });
+  
+      function validateForm() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+  
+        // Add more validation logic if needed
+        return username !== '' && password !== '';
+      }
+  
+      function highlightForm() {
+        var labels = document.querySelectorAll('.login-box label');
+        var inputs = document.querySelectorAll('.login-box input');
+  
+        labels.forEach(function (label) {
+          label.style.color = 'rgb(182, 51, 102)';
+        });
+  
+        inputs.forEach(function (input) {
+          input.style.borderBottom = '2px solid rgb(182, 51, 102)';
+        });
+      }
+  
+      function openPopup(popupId, closeBtnId) {
+        var popup = document.getElementById(popupId);
+        var overlay = document.getElementById('popup-overlay');
+        var closeBtn = document.getElementById(closeBtnId);
+  
+        popup.style.display = 'block';
+        overlay.style.display = 'block';
+  
+        closeBtn.addEventListener('click', closePopup);
+        overlay.addEventListener('click', closePopup);
+      }
+  
+      function closePopup() {
+        var popups = document.querySelectorAll('.popup');
+        var overlay = document.getElementById('popup-overlay');
+  
+        popups.forEach(function (popup) {
+          popup.style.display = 'none';
+        });
+  
+        overlay.style.display = 'none';
       }
     });
-
-    function validateForm() {
-      var username = document.getElementById('username').value;
-      var password = document.getElementById('password').value;
-
-      // Add more validation logic if needed
-      return username !== '' && password !== '';
-    }
-
-    function highlightForm() {
-      var labels = document.querySelectorAll('.login-box label');
-      var inputs = document.querySelectorAll('.login-box input');
-
-      labels.forEach(function (label) {
-        label.style.color = 'rgb(182, 51, 102)';
-      });
-
-      inputs.forEach(function (input) {
-        input.style.borderBottom = '2px solid rgb(182, 51, 102)';
-      });
-    }
-
-    function openPopup(popupId, closeBtnId) {
-      var popup = document.getElementById(popupId);
-      var overlay = document.getElementById('popup-overlay');
-      var closeBtn = document.getElementById(closeBtnId);
-
-      popup.style.display = 'block';
-      overlay.style.display = 'block';
-
-      closeBtn.addEventListener('click', closePopup);
-      overlay.addEventListener('click', closePopup);
-    }
-
-    function closePopup() {
-      var popups = document.querySelectorAll('.popup');
-      var overlay = document.getElementById('popup-overlay');
-
-      popups.forEach(function (popup) {
-        popup.style.display = 'none';
-      });
-
-      overlay.style.display = 'none';
-    }
-  });
-</script>
+  </script>
 
   
 </head>
