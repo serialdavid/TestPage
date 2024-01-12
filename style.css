@@ -63,6 +63,7 @@ input {
   margin-bottom: 15px;
   border: none; /* Remove border */
   border-bottom: 1px solid #33333350; /* Add underline */
+  border-radius: 0; /* Remove border-radius */
   outline: none; /* Remove default focus outline */
   background: transparent; /* Make background transparent */
   font-size: 18px;
