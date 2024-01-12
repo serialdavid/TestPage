@@ -194,15 +194,15 @@ input:valid::placeholder {
   .popup {
       display: none;
       position: fixed;
-      top: 50%;
+      top: 20%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 30%;
+      width: 25%;
       padding: 20px;
-      background-color: rgba(255, 255, 255, 0.75);
+      background-color: rgba(255, 255, 255, 0.95);
       color: rgba(229, 2, 78, 0.91);
       border-radius: 8px;
-      text-align: center;
+      text-align: Left;
     }
 
   .close-popup {
