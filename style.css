@@ -145,6 +145,41 @@ button:hover {
   width: 1px;
 }
 
+.footer-links {
+  margin: 20px auto;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: -14px; /* Adjust the margin on the left side */
+  margin-right: 25px; /* Adjust the margin on the right side */
+}
+
+.footer-links a {
+  color: #4f4f4f;
+  text-decoration: none;
+  display: block;
+  margin: 0 4px; /* Adjust the minimum margin between links */
+  font-size: 11px;
+}
+
+.footer-links p {
+  color: #666;
+  margin-top: 15px;
+  font-size: 11px;
+  width: 100%; /* Make sure the paragraph takes up the full width */
+  box-sizing: border-box; /* Include padding and border in the width calculation */
+}
+
+.social-icons a {
+  margin: 0 5px; /* Add margin for spacing between icons */
+}
+
+.social-icons img {
+  width: 20px;
+  height: auto;
+}
+
 .line {
   width: 70%;
   border-top: 1px solid #cccccc; /* Adjust the color of the line */
