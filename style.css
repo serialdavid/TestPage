@@ -213,7 +213,7 @@ input:valid::placeholder {
 .close-popup {
   position: absolute;
   top: 20px;
-  right: 20px;
+  right: 25px;
   cursor: pointer;
 }
 
